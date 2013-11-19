@@ -5,7 +5,6 @@ Torch 7.0  Copyright (C) 2001-2011 Idiap, NEC Labs, NYU
 local ffi = require 'ffi'
 local C = ffi.load('fftw3')
 local fftw = {}
-local registerdefines = require 'fftw3.defines'
 
 require 'fftw3.cdefs'
 
@@ -86,8 +85,6 @@ register('flops', 'fftw_flops')
 register('estimate_cost', 'fftw_estimate_cost')	
 register('cost', 'fftw_cost')	
 
-
-registerdefines(fftw)
 
 return fftw
 	
