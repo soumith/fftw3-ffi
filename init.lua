@@ -1,4 +1,3 @@
-Torch 7.0  Copyright (C) 2001-2011 Idiap, NEC Labs, NYU
 -- Do not change this file manually
 -- Generated with dev/create-init.lua
 
