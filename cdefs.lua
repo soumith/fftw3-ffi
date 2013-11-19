@@ -6,6 +6,11 @@
 local ffi = require 'ffi'
 
 ffi.cdef[[
+typedef struct _FILE FILE;
+]]
+
+
+ffi.cdef[[
 
 enum fftw_r2r_kind_do_not_use_me {
      FFTW_R2HC=0, FFTW_HC2R=1, FFTW_DHT=2,
