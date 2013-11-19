@@ -9,6 +9,9 @@ local fftw = {}
 
 require 'fftw3.cdefs'
 
+require 'fftw3.defines'
+register_hashdefs(fftw)
+
 local function register(luafuncname, funcname)
    local symexists, msg = pcall(function()
                               local sym = C[funcname]
