@@ -264,7 +264,6 @@ extern double fftwl_cost(const fftwl_plan p);
 extern const char fftwl_version[]; 
 extern const char fftwl_cc[]; 
 extern const char fftwl_codelet_optim[];
-# 371 "fftw3.h"
 typedef __float128 fftwq_complex[2]; 
 typedef struct fftwq_plan_s *fftwq_plan; 
 typedef struct fftw_iodim_do_not_use_me fftwq_iodim; 
