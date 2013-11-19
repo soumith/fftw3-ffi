@@ -7,6 +7,7 @@ local ffi = require 'ffi'
 
 ffi.cdef[[
 typedef struct _FILE FILE;
+typedef long double __float128;
 ]]
 
 
