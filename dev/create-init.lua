@@ -6,7 +6,6 @@ print[[
 local ffi = require 'ffi'
 local C = ffi.load('fftw3')
 local fftw = {}
-local registerdefines = require 'fftw3.defines'
 
 require 'fftw3.cdefs'
 
@@ -40,14 +39,12 @@ end
 print()
 
 for defname in txt:gmatch('fftw_([^%=,%.%;<%s%(%)|%[%]]+)') do
-   if not defined[defname] and defname == string.upper(defname) then
+   if not defined[defname] then
       print(string.format("register('%s', 'fftw_%s')", defname, defname))
    end
 end
 
 print[[
-
-registerdefines(fftw)
 
 return fftw
 ]]
