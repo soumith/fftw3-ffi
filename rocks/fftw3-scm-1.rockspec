@@ -23,6 +23,7 @@ build = {
    modules = {
       ["fftw3.init"] = "init.lua",
       ["fftw3.cdefs"] = "cdefs.lua",
-      ["fftw3.defines"] = "defines.lua"
+      ["fftw3.defines"] = "defines.lua",
+      ["fftw3.torch"] = "torch.lua"
    }      
 }

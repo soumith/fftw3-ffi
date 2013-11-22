@@ -2,10 +2,7 @@ local ffi  = require 'ffi'
 local fftw = require 'fftw3'
 local torchffi = require 'torchffi'
 
-local bit = require 'bit'
-
-
-local function fft1d(input)
+local function fftr1d(input)
    assert(input:dim() == 1)
    local input_data = torch.data(input) -- double*
 
@@ -17,10 +14,11 @@ local function fft1d(input)
    local flags = fftw.ESTIMATE
    local plan  = fftw.plan_dft_r2c_1d(input:size(1), input_data, output_data_cast, flags)
    fftw.execute(plan)
+   fftw.destroy_plan(plan)
    return output
 end
 
-local function ifft1d(input)
+local function ifftr1d(input)
    assert(input:dim() == 2)
    local input_data = torch.data(input) -- double*
    local input_data_cast = ffi.cast('fftw_complex*', input_data)
@@ -32,28 +30,41 @@ local function ifft1d(input)
    local flags = fftw.ESTIMATE
    local plan  = fftw.plan_dft_c2r_1d(input:size(1), input_data_cast, output_data, flags)
    fftw.execute(plan)
+   fftw.destroy_plan(plan)
    return output
 end
 
 
 
-input = torch.Tensor(8); -- torch.randn(1024):fill(1) -- double tensor
-input[1] = 10
-input[2] = 15
-input[3] = 13
-input[4] = 15
-input[5] = 45
-input[6] = 64
-input[7] = 34
-input[8] = 665
+input = torch.Tensor(4,2):fill(0)
+input[1][1] = 1
+input[2][1] = 2
+input[3][1] = 3
+input[4][1] = 4
 
-output = fft1d(input)
-input2 = ifft1d(output)
+print(input)
+output = torch.fft(input)
+inputi = torch.ifft(output)
+print(output)
+print(inputi)
 
+input = torch.Tensor(4); -- torch.randn(1024):fill(1) -- double tensor
+input[1] = 1
+input[2] = 2
+input[3] = 3
+input[4] = 4
 
+output = torch.fft(input)
+inputi = torch.ifft(output)
+print(input)
+print(output)
+print(inputi)
 
+-- output = fftr1d(input)
+-- inputi = ifftr1d(output)
+-- print(output)
 
 -- require 'audio'
 -- input2 = input:clone()
--- input2:resize(1,8)
--- output2 = audio.stft(input2, 8, 'rect', 1)
+-- input2:resize(1,4)
+-- output2 = audio.stft(input2, 4, 'rect', 1)
