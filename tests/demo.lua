@@ -48,7 +48,7 @@ inputi = torch.ifft(output)
 print(output)
 print(inputi)
 
-input = torch.Tensor(4); -- torch.randn(1024):fill(1) -- double tensor
+input = torch.Tensor(4);
 input[1] = 1
 input[2] = 2
 input[3] = 3
@@ -59,6 +59,31 @@ inputi = torch.ifft(output)
 print(input)
 print(output)
 print(inputi)
+
+input = torch.Tensor(2,2,2):fill(0)
+input[1][1][1] = 1
+input[1][2][1] = 2
+input[2][1][1] = 3
+input[2][2][1] = 4
+
+print(input)
+output = torch.fft2(input)
+inputi = torch.ifft2(output)
+print(output)
+print(inputi)
+
+input = torch.Tensor(2,2);
+input[1][1] = 1
+input[1][2] = 2
+input[2][1] = 3
+input[2][2] = 4
+
+output = torch.fft2(input)
+inputi = torch.ifft2(output)
+print(input)
+print(output)
+print(inputi)
+
 
 -- output = fftr1d(input)
 -- inputi = ifftr1d(output)
