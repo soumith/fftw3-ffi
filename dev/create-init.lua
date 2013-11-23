@@ -49,8 +49,5 @@ end
 
 print[[
 
-require 'fftw3.torch'
-register_torchwrappers(fftw)
-
 return fftw
 ]]

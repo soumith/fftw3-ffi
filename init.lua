@@ -245,8 +245,5 @@ register('r2r_kind_do_not_use_me', 'fftw_r2r_kind_do_not_use_me')
 register('write_char_func_do_not_use_me', 'fftw_write_char_func_do_not_use_me')
 register('read_char_func_do_not_use_me', 'fftw_read_char_func_do_not_use_me')
 
-require 'fftw3.torch'
-register_torchwrappers(fftw)
-
 return fftw
 
