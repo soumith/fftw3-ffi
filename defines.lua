@@ -14,6 +14,6 @@ function register_hashdefs(fftw, C)
 
    fftw.NO_TIMELIMIT = (-1.0)
 
-   -- typedef
-   fftw.r2r_kind = C['fftw_r2r_kind']
+   -- -- typedef
+   -- fftw.r2r_kind = C['fftw_r2r_kind']
 end
