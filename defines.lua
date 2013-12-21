@@ -1,3 +1,4 @@
+local ffi=require 'ffi'
 function register_hashdefs(fftw, C)
    fftw.MEASURE = 0
    fftw.DESTROY_INPUT = 1
@@ -15,5 +16,5 @@ function register_hashdefs(fftw, C)
    fftw.NO_TIMELIMIT = (-1.0)
 
    -- -- typedef
-   -- fftw.r2r_kind = C['fftw_r2r_kind']
+   fftw.r2r_kind = ffi.typeof('fftw_r2r_kind')
 end
