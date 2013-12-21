@@ -17,4 +17,17 @@ function register_hashdefs(fftw, C)
 
    -- -- typedef
    fftw.r2r_kind = ffi.typeof('fftw_r2r_kind')
+   fftw.R2HC=0
+   fftw.HC2R=1
+   fftw.DHT=2
+
+   fftw.REDFT00=3
+   fftw.REDFT01=4
+   fftw.REDFT10=5
+   fftw.REDFT11=6
+
+   fftw.RODFT00=7
+   fftw.RODFT01=8
+   fftw.RODFT10=9
+   fftw.RODFT11=10
 end
