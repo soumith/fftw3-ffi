@@ -1,4 +1,4 @@
-function register_hashdefs(fftw)
+function register_hashdefs(fftw, C)
    fftw.MEASURE = 0
    fftw.DESTROY_INPUT = 1
    fftw.UNALIGNED = 2
@@ -13,4 +13,7 @@ function register_hashdefs(fftw)
    fftw.BACKWARD =  1
 
    fftw.NO_TIMELIMIT = (-1.0)
+
+   -- typedef
+   fftw.r2r_kind = C['fftw_r2r_kind']
 end
