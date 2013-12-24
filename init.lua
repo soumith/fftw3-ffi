@@ -2,14 +2,13 @@
 -- Generated with dev/create-init.lua
 
 local ffi = require 'ffi'
-local fftw = {}
-fftw.C = ffi.load('fftw3')
-local C = fftw.C
+local C = ffi.load('fftw3')
+local fftw = {C=C}
 
 require 'fftw3.cdefs'
 
-require 'fftw3.defines'
-register_hashdefs(fftw, C)
+local defines = require 'fftw3.defines'
+defines.register_hashdefs(fftw, C)
 
 local function register(luafuncname, funcname)
    local symexists, msg = pcall(function()

@@ -1,5 +1,6 @@
 local ffi=require 'ffi'
-function register_hashdefs(fftw, C)
+local defines = {}
+function defines.register_hashdefs(fftw, C)
    fftw.MEASURE = 0
    fftw.DESTROY_INPUT = 1
    fftw.UNALIGNED = 2
@@ -31,3 +32,5 @@ function register_hashdefs(fftw, C)
    fftw.RODFT10=9
    fftw.RODFT11=10
 end
+
+return defines
