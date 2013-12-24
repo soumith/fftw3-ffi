@@ -4,8 +4,9 @@ print[[
 -- Generated with dev/create-init.lua
 
 local ffi = require 'ffi'
-local C = ffi.load('fftw3')
 local fftw = {}
+fftw.C = ffi.load('fftw3')
+local C = fftw.C
 
 require 'fftw3.cdefs'
 
