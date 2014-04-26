@@ -19,6 +19,13 @@ luarocks install https://raw.github.com/soumith/fftw3-ffi/master/rocks/fftw3-scm
 local fftw = require 'fftw3'
 ...
 ```
+Float version
+```lua
+local fftw = require 'fftw3'
+fftw = fftw.float
+...
+```
+
 
 All FFTW C functions are available in the `fftw` namespace returned by require. The only difference is the naming, which is not prefixed
 by `fftw_` anymore. 
