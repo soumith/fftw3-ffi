@@ -2,11 +2,30 @@
 -- Generated with dev/create-init.lua
 
 local ffi = require 'ffi'
-local C = ffi.load('fftw3')
-local ok, Cf = pcall(function () return ffi.load('fftw3f') end)
-if not ok then
+local C, Cf
+
+local libnames = {'fftw3', 'libfftw3.so.3'}
+local flibnames = {'fftw3f', 'libfftw3f.so.3'}
+
+for i=1,#libnames do
+   local ok, l = pcall(function () return ffi.load(libnames[i]) end)
+   if ok then C = l; break; end
+end
+if not C then error([[
+Error: could not find libfftw3 on your machine. 
+Please file an issue on https://github.com/soumith/fftw3-ffi/issues with your OS version, 
+and check that you have installed fftw3 on your machine']]
+) 
+end
+
+for i=1,#flibnames do
+   local ok, l = pcall(function () return ffi.load(flibnames[i]) end)
+   if ok then Cf = l; break; end
+end
+if not Cf then
      print('Warning: float version of libfftw3: libfftw3f.(so/dylib) not found')
 end
+
 local fftw = {C=C}
 local fftwf = {Cf = Cf}
 fftw.float = fftwf
